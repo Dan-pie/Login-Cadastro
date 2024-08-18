@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro</title>
+        <link rel="stylesheet" href="{% static 'my_app/logincad.css' %}">
+    </head>
+    <body>
+        <h1>Bem vindo ao cadastro!</h1>
+        <form action="{% url 'cad' %}" method="POST"> {% csrf_token %}
+            <div class="container">
+                <h2>Usuario</h2>
+                <input type="text" name="username" placeholder="Insira o nome de usuario...">
+            </div>
+            <div class="container">
+                <h2>Email</h2>
+                <input type="email" name="email" placeholder="usuario@dominio.com">
+            </div>
+            <div class="container">
+                <h2>Senha</h2>
+                <input type="password" name="password" placeholder="1234">
+            </div>
+            <input type="submit" value="Enviar">
+            <p>Já tem uma conta? <a href="{% url 'login' %}">clique aqui</a></p>
+        </form>
+    </body>
+</html>
